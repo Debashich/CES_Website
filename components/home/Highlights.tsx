@@ -3,60 +3,127 @@ import Link from "next/link";
 const highlights = [
   {
     tag: "HACKATHON",
-    date: "05 SEP 2026",
-    title: "CES Hackathon 2026",
-    desc: "A high-intensity coding sprint where students engineered functional prototypes addressing modern community infrastructure issues.",
+    date: "03 APR 2025",
+    title: "SIT Hack-A-Verse 2025",
+    desc: "Our flagship 24-hour hackathon bringing together over 200 students and 50+ teams to tackle challenging real-world problem statements.",
     href: "/events",
   },
   {
-    tag: "OPEN SOURCE",
-    date: "14 AUG 2026",
-    title: "SIT Contribution Day",
-    desc: "Introducing repository pipelines and engineering practices to students getting started with modern structural systems.",
+    tag: "INDUSTRY CONNECT",
+    date: "18 AUG 2025",
+    title: "Campus 2 Corporate",
+    desc: "A five-day intensive program bridging the gap to corporate life through technical mock interviews, group discussions, and career preparation.",
     href: "/events",
   },
 ];
 
 export default function Highlights() {
   return (
-    <section className="min-h-screen flex flex-col justify-center border-t border-white/[0.03] py-16 bg-transparent">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+    <section
+      id="highlights"
+      className="relative z-10 min-h-[100svh] w-full flex items-center justify-center px-5 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-0 bg-transparent border-t border-white/[0.03]"
+    >
+      <div className="w-full max-w-7xl mx-auto">
+
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 sm:mb-12 lg:mb-14 gap-5">
+
           <div>
-            <p className="text-[11px] font-medium tracking-[2px] text-[var(--ces-text-secondary)] uppercase mb-2">Spotlight</p>
-            <h2 className="text-3xl font-medium text-[var(--ces-text-primary)] tracking-tight">Featured Events</h2>
+            <p className="mb-2 text-[11px] sm:text-xs font-medium uppercase tracking-[3px] sm:tracking-[2px] text-[#9AA9D6]">
+              SPOTLIGHT
+            </p>
+
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-medium leading-[1.05] tracking-[-1px] text-[#E8EEFF]">
+              Featured
+              <span className="text-[#6FA8FF]"> Events</span>
+            </h2>
           </div>
-          <Link href="/events" className="text-sm font-medium text-[var(--ces-text-muted)] hover:text-[var(--ces-text-primary)] transition-colors">
+
+          <Link
+            href="/events"
+            className="text-[13px] sm:text-sm font-medium text-[#8F9CC2] hover:text-[#E8EEFF] transition-colors"
+          >
             View all events →
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Highlight Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8">
+
           {highlights.map((item, idx) => (
-            <div key={idx} className="flex flex-col bg-white/[0.005] border border-white/[0.05] rounded-xl overflow-hidden group backdrop-blur-sm">
-              <div className="h-48 bg-white/[0.01] relative overflow-hidden border-b border-white/[0.03]">
-                <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:16px_16px]" />
+            <article
+              key={idx}
+              className="group relative flex flex-col overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.015] backdrop-blur-sm transition-all duration-300 hover:border-[#6FA8FF]/30 hover:bg-white/[0.025]"
+            >
+
+              {/* Visual Area */}
+              <div className="relative h-40 sm:h-48 lg:h-56 overflow-hidden border-b border-white/[0.04]">
+
+                {/* Grid */}
+                <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:16px_16px]" />
+
+                {/* Large Event Number */}
+                <div className="absolute bottom-3 left-5 sm:bottom-5 sm:left-6 text-[64px] sm:text-[80px] lg:text-[96px] font-medium leading-none tracking-[-5px] text-white/[0.035] select-none">
+                  {String(idx + 1).padStart(2, "0")}
+                </div>
+
+                {/* Corner Label */}
+                <div className="absolute right-5 top-5 sm:right-6 sm:top-6">
+                  <span className="text-[9px] sm:text-[10px] font-mono tracking-[2px] text-[#6F7DA8]">
+                    CES / {String(idx + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
               </div>
-              
-              <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-xs font-mono tracking-wider">
-                    <span className="text-[var(--ces-gold)]">{item.tag}</span>
-                    <span className="text-[var(--ces-text-muted)]">{item.date}</span>
+
+              {/* Content */}
+              <div className="flex flex-grow flex-col justify-between p-5 sm:p-6 lg:p-7">
+
+                <div>
+
+                  {/* Meta */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 text-[9px] sm:text-[10px] font-mono font-medium tracking-[1.5px]">
+
+                    <span className="text-[#6FA8FF]">
+                      {item.tag}
+                    </span>
+
+                    <span className="text-[#6F7DA8]">
+                      {item.date}
+                    </span>
+
                   </div>
-                  <h3 className="text-xl font-medium text-[var(--ces-text-primary)]">
+
+                  {/* Title */}
+                  <h3 className="mt-4 text-[23px] sm:text-[26px] lg:text-[30px] font-medium leading-tight tracking-[-0.5px] text-[#E8EEFF] group-hover:text-[#C9D8FF] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-[13px] text-[var(--ces-text-muted)] leading-relaxed">{item.desc}</p>
+
+                  {/* Description */}
+                  <p className="mt-3 max-w-xl text-[13px] sm:text-sm leading-[1.7] text-[#8F9CC2]">
+                    {item.desc}
+                  </p>
+
                 </div>
-                
-                <Link href={item.href} className="inline-flex items-center text-xs font-medium text-[var(--ces-text-secondary)] hover:text-[var(--ces-text-primary)] pt-2">
-                  View event <span className="ml-1">→</span>
+
+                {/* Link */}
+                <Link
+                  href={item.href}
+                  className="mt-7 inline-flex items-center text-[13px] sm:text-sm font-medium text-[#9AA9D6] hover:text-[#E8EEFF] transition-colors"
+                >
+                  View event
+                  <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
                 </Link>
+
               </div>
-            </div>
+
+            </article>
           ))}
+
         </div>
+
       </div>
     </section>
   );
